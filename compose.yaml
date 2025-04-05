@@ -1,0 +1,41 @@
+services:
+
+##########################################
+##
+## valorant digital -> cloud linux desktop
+##
+##########################################
+
+    software-shinobi-linux:
+
+        container_name: software-shinobi-linux
+
+        image: softwareshinobi/software-shinobi-linux:redhat
+       
+        restart: unless-stopped
+
+        tty: true
+
+        build: 
+
+            context: .
+
+            dockerfile: Dockerfile
+
+##        volumes:
+##
+##            - ./volumes/3:/home/shinobi
+
+        domainname: almalinux.embanet.online
+
+        hostname: almalinux
+
+        ports:
+
+          - "2222:22"
+                      
+        environment:
+        
+            VIRTUAL_HOST: almalinux.embanet.online
+
+            LETSENCRYPT_HOST: almalinux.embanet.online            

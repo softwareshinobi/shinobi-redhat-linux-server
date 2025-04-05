@@ -1,0 +1,28 @@
+FROM almalinux AS base
+
+##
+
+WORKDIR /
+
+COPY /provision /
+
+##
+
+##
+
+## RUN bash installs/upgrade.bash
+
+##RUN bash installs/sshserver.bash
+
+##
+
+##COPY provision/installs/startup/startup.sh /startup.sh
+
+##
+
+RUN yum -y install httpd; yum clean all; systemctl enable httpd.service
+
+EXPOSE 80
+
+CMD ["/usr/sbin/init"]
+

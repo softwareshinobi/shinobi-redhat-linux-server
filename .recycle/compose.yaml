@@ -1,0 +1,18 @@
+services:
+
+    shinobi-academy-linux-centos:
+
+            container_name: shinobi-academy-linux
+
+            image: redhat:8
+
+            tty: true
+
+            hostname: countach
+
+            domainname: countach.embanet.softwareshinobi.digital
+
+            ports:
+
+                - "2222:22"
+                
